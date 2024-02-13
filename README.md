@@ -60,6 +60,8 @@
 | street_address     | string     | null: false |
 | building_name      | string     | null: false |
 | phone_number       | integer    | null: false |
+| order              | references | null: false, foreign_key: true |
+
 
 ### Association
 
