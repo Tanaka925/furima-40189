@@ -4,8 +4,8 @@ class Item < ApplicationRecord
   validates :category_id,        presence: true, numericality: { other_than: 1 , message: "can't be blank"}
   validates :condition_id,       presence: true, numericality: { other_than: 1 , message: "can't be blank"}
   validates :delivery_charge_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :area_id,            presence: true
-  validates :shipping_day_id,    presence: true
+  validates :area_id,            presence: true, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :shipping_day_id,    presence: true, numericality: { other_than: 1 , message: "can't be blank"}
   validates :price,              presence: true
   validates :image,              presence: true
 
