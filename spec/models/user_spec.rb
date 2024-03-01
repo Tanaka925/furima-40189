@@ -56,7 +56,6 @@ RSpec.describe User, type: :model do
       it 'パスワードが全角の場合は登録できない' do
         @user.password = 'a12345６'
         @user.valid?
-        binding.pry
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password には半角の英字と数字の両方を含めて設定してください")
       end
       it 'パスワードとパスワード（確認）が一致しなければ登録できない' do
