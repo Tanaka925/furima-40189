@@ -2,11 +2,11 @@ class Item < ApplicationRecord
   validates :image,              presence: true
   validates :product_name,       presence: true
   validates :description,        presence: true
-  validates :category_id,        presence: true, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :condition_id,       presence: true, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :delivery_charge_id, presence: true, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :area_id,            presence: true, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :shipping_day_id,    presence: true, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :category_id,        presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :condition_id,       presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :delivery_charge_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :area_id,            presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipping_day_id,    presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :price,              presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
 
   belongs_to :user
@@ -18,5 +18,4 @@ class Item < ApplicationRecord
   belongs_to :delivery_charge
   belongs_to :area
   belongs_to :shipping_day
-
 end
