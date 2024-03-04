@@ -7,7 +7,7 @@ priceInput.addEventListener("input", () => {
 
   const addTaxValue = parseFloat(addTaxDom.innerHTML);
   const profitValue = document.getElementById("profit");
-  profitValue.innerHTML = inputValue - addTaxValue
+  profitValue.innerHTML = Math.floor(inputValue - addTaxValue)
 
 });
 
