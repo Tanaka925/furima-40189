@@ -6,9 +6,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    unless user_signed_in?
-      redirect_to user_session_path
-    end
+    return if user_signed_in?
+
+    redirect_to user_session_path
   end
 
   def create
