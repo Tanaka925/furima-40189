@@ -26,12 +26,12 @@ RSpec.describe User, type: :model do
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include("Email has already been taken")
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
       it 'メールアドレスが@を含まなければ登録できない' do
         @user.email = 'testemail'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'パスワードが空では登録できない' do
         @user.password = ''
@@ -41,23 +41,26 @@ RSpec.describe User, type: :model do
       it 'パスワードが6文字より少なければ登録できない' do
         @user.password = 'a1234'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password",
+                                                      'Password is too short (minimum is 6 characters)')
       end
       it 'パスワードが半角数字のみの場合は登録できない' do
         @user.password = '1234567'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password には半角の英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password",
+                                                      'Password には半角の英字と数字の両方を含めて設定してください')
       end
       it 'パスワードが半角英字のみの場合は登録できない' do
         @user.password = 'abcdefg'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password には半角の英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password",
+                                                      'Password には半角の英字と数字の両方を含めて設定してください')
       end
       it 'パスワードが全角の場合は登録できない' do
         @user.password = 'a12345６'
         @user.valid?
-        binding.pry
-        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password", "Password には半角の英字と数字の両方を含めて設定してください")
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password",
+                                                      'Password には半角の英字と数字の両方を含めて設定してください')
       end
       it 'パスワードとパスワード（確認）が一致しなければ登録できない' do
         @user.password = 'a123456'
@@ -78,12 +81,12 @@ RSpec.describe User, type: :model do
       it 'お名前(全角)の名字は、全角（漢字・ひらがな・カタカナ）以外の入力では登録できない' do
         @user.first_name_kanji = 'Cruise'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kanji 全角文字を使用してください")
+        expect(@user.errors.full_messages).to include('First name kanji 全角文字を使用してください')
       end
       it 'お名前(全角)の名前は、全角（漢字・ひらがな・カタカナ）以外の入力では登録できない' do
         @user.last_name_kanji = 'Tom'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kanji 全角文字を使用してください")
+        expect(@user.errors.full_messages).to include('Last name kanji 全角文字を使用してください')
       end
       it 'お名前カナ(全角)の名字が空では登録できない' do
         @user.first_name_kana = ''
@@ -98,12 +101,12 @@ RSpec.describe User, type: :model do
       it 'お名前カナ(全角)の名字は、全角（カタカナ）以外の入力では登録できない' do
         @user.first_name_kana = '田中'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('First name kana カタカナを使用してください')
       end
       it 'お名前カナ(全角)の名前は、全角（カタカナ）以外の入力では登録できない' do
         @user.last_name_kana = '太郎'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana カタカナを使用してください")
+        expect(@user.errors.full_messages).to include('Last name kana カタカナを使用してください')
       end
       it '生年月日が空では登録できない' do
         @user.birthday = ''
