@@ -4,8 +4,8 @@ FactoryBot.define do
     area_id          { Faker::Number.between(from: 2, to: 48) }
     city             { Faker::Address.city }
     street_address   { Faker::Address.street_address }
-    building_name    { "メゾン" + Faker::Address.community }
+    building_name    { 'メゾン' + Faker::Address.community }
     phone_number     { "090#{Faker::Number.number(digits: 8)}" }
-    token            {"tok_abcdefghijk00000000000000000"}
+    token            { 'tok_abcdefghijk00000000000000000' }
   end
 end
