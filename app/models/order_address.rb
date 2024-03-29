@@ -4,7 +4,7 @@ class OrderAddress
                 :token
 
   with_options presence: true do
-    validates :token, presence: true
+    validates :token
     validates :item_id
     validates :user_id
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
